@@ -1,0 +1,34 @@
+file_or_file_group	column_name	description	data_type	example_or_allowed_values
+metadata/*.tsv.bz2	accession	Genome assembly accession or isolate accession used as the primary sample identifier.	string	GCA_000000000.1
+metadata/*.tsv.bz2	biosample	NCBI BioSample accession when available.	string	SAMN00000000
+metadata/*.tsv.bz2	organism	Organism name reported in the source metadata.	string	Listeria monocytogenes
+metadata/*.tsv.bz2	isolation_source	Original isolation-source text from NCBI or harmonized metadata.	string	milk, water, chicken, human
+metadata/*.tsv.bz2	host	Host information when available.	string	Homo sapiens, food, environmental
+metadata/*.tsv.bz2	collection_date	Collection date or year when available.	string/date	2020 or 2020-01-01
+metadata/*.tsv.bz2	geo_loc_name	Geographic location information when available.	string	USA, China, France
+metadata/train_metadata.tsv.bz2	source_category	Harmonized training source category.	categorical	Beef, Chicken, Pork, Seafood, Dairy, Fruit, Vegetable, Soil, Water
+metadata/human_metadata.tsv.bz2	dataset	Dataset membership indicator.	categorical	Human
+metadata/seed_metadata.tsv.bz2	dataset	Seed-genome dataset indicator when present.	categorical/string	Seed
+method_tables/source_category_mapping.tsv	dataset_use	Dataset context for the mapping rule.	string	Training or external
+method_tables/source_category_mapping.tsv	category_or_group	Target source category or group name.	categorical/string	Dairy, Water, Human clinical isolates
+method_tables/source_category_mapping.tsv	priority	Rule priority used during source-category assignment.	integer/string	1, 2, 3
+method_tables/source_category_mapping.tsv	regex_screening_terms_case_insensitive	Case-insensitive regular-expression terms used to screen source text.	string	milk|dairy|cheese
+method_tables/source_category_mapping.tsv	notes	Additional notes for the mapping rule.	string	Free text
+allele_profiles/*.tsv.bz2	accession	Sample accession or isolate identifier.	string	GCA_000000000.1
+allele_profiles/*.tsv.bz2	label	Source label when included in the matrix.	categorical	Beef, Chicken, Dairy, Human
+allele_profiles/*.tsv.bz2	<locus_id>	Allele call for a cgMLST or wgMLST locus. Missing or failed calls may be encoded as -1 depending on preprocessing.	integer	-1, 1, 2, 3
+feature_ranking/wgMLST_locus_ranking_scores.tsv	rank	Rank of the wgMLST locus after source-signal scoring.	integer	1
+feature_ranking/wgMLST_locus_ranking_scores.tsv	locus_id	wgMLST locus identifier.	string	GCA-000008285-protein1
+feature_ranking/wgMLST_locus_ranking_scores.tsv	mutual_information	Source-label association score or normalized mutual-information component, if present.	numeric	0.123
+feature_ranking/wgMLST_locus_ranking_scores.tsv	source_separation_score	Within-source versus between-source separation component, if present.	numeric	0.456
+feature_ranking/wgMLST_locus_ranking_scores.tsv	call_rate	Proportion of isolates with valid allele calls for the locus, if present.	numeric	0.98
+feature_ranking/wgMLST_locus_ranking_scores.tsv	ranking_score	Final combined ranking score used to order loci, if present.	numeric	0.789
+feature_ranking/Top800_loci.tsv	rank	Rank of the locus within the Top800 feature set, if present.	integer	1
+feature_ranking/Top800_loci.tsv	locus_id	Identifier of a Top800 wgMLST locus.	string	GCA-000008285-protein1
+feature_ranking/wgMLST_loci_annotation.tsv	rank	wgMLST locus rank when available.	integer	1
+feature_ranking/wgMLST_loci_annotation.tsv	locus_id	wgMLST locus identifier.	string	GCA-000008285-protein1
+feature_ranking/wgMLST_loci_annotation.tsv	swissprot_hit	Best Swiss-Prot or DIAMOND hit identifier when available.	string	sp|P00000|GENE_LISMO
+feature_ranking/wgMLST_loci_annotation.tsv	gene_name	Annotated gene name when available.	string	inlA
+feature_ranking/wgMLST_loci_annotation.tsv	protein_name	Annotated protein or product name when available.	string	Internalin A
+feature_ranking/wgMLST_loci_annotation.tsv	functional_category	Assigned broad functional category.	categorical/string	Transport, Enzyme, Regulator, Other
+scripts/*.R	NA	R scripts are executable analysis files rather than tabular data.	R code	Run in R/Rscript after adjusting paths as needed

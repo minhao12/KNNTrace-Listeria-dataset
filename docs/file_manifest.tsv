@@ -1,0 +1,34 @@
+file_path	description	format	related_section
+README.md	Overview of the repository, directory contents, and reuse notes.	Markdown	Repository documentation
+LICENSE	CC0-1.0 license file.	Text	License
+metadata/all_metadata.jsonl.bz2	Compressed JSONL file containing the full NCBI metadata pool for publicly available Listeria monocytogenes genome assemblies used as the initial data source.	JSONL compressed with bzip2	Data sources and preprocessing
+metadata/train_metadata.tsv.bz2	Compressed TSV metadata table for the nine-source food/environmental training isolate set.	TSV compressed with bzip2	Training dataset
+metadata/human_metadata.tsv.bz2	Compressed TSV metadata table for the external human clinical isolate set.	TSV compressed with bzip2	External human isolate dataset
+metadata/seed_metadata.tsv.bz2	Compressed TSV metadata table for seed genomes used in study-specific wgMLST scheme construction.	TSV compressed with bzip2	wgMLST scheme construction
+method_tables/source_category_mapping.tsv	Mapping table used to harmonize NCBI isolation-source metadata into predefined source categories.	TSV	Source-category harmonization
+allele_profiles/cgMLST_1748_train_matrix.tsv.bz2	Compressed cgMLST allele-profile matrix for the nine-source training isolates.	TSV compressed with bzip2	cgMLST allele profiles
+allele_profiles/cgMLST_1748_human_matrix.tsv.bz2	Compressed cgMLST allele-profile matrix for the external human isolates.	TSV compressed with bzip2	cgMLST allele profiles
+allele_profiles/wgMLST_3586_train_matrix.tsv.bz2	Compressed full retained wgMLST allele-profile matrix for the nine-source training isolates.	TSV compressed with bzip2	wgMLST allele profiles
+allele_profiles/wgMLST_3586_human_matrix.tsv.bz2	Compressed full retained wgMLST allele-profile matrix for the external human isolates.	TSV compressed with bzip2	wgMLST allele profiles
+allele_profiles/Top800_wgMLST_train_matrix.tsv.bz2	Compressed Top800 wgMLST allele-profile matrix for the nine-source training isolates.	TSV compressed with bzip2	Top800 wgMLST allele profiles
+allele_profiles/Top800_wgMLST_human_matrix.tsv.bz2	Compressed Top800 wgMLST allele-profile matrix for the external human isolates.	TSV compressed with bzip2	Top800 wgMLST allele profiles
+feature_ranking/wgMLST_locus_ranking_scores.tsv	Ranking-score table for retained wgMLST loci, including source-attribution signal metrics used for TopN feature selection.	TSV	Feature ranking
+feature_ranking/Top800_loci.tsv	Final Top800 wgMLST locus list used by the main KNNTrace model.	TSV	Top800 feature set
+feature_ranking/wgMLST_loci_annotation.tsv	Functional annotation table for retained wgMLST loci, including Swiss-Prot hit information and functional categories when available.	TSV	Functional annotation
+scripts/wg_locus_filter.R	R script for filtering wgMLST loci based on missingness, major-allele frequency, polymorphism, and redundancy criteria.	R script	Locus filtering
+scripts/knn_locus_rank.R	R script for ranking filtered wgMLST loci by KNN/Hamming source-attribution signal and generating TopN locus sets.	R script	Feature ranking
+scripts/cg_thresh.R	R script for calculating source-specific cgMLST distance thresholds from training isolates.	R script	Threshold calculation
+scripts/wg_thresh.R	R script for calculating source-specific Top800 wgMLST distance thresholds from training isolates.	R script	Threshold calculation
+scripts/post_filter_cg.R	R script for post-filtering external human cgMLST predictions using confidence and normalized source-specific distance thresholds.	R script	External human prediction filtering
+scripts/post_filter_wg800.R	R script for post-filtering external human Top800 wgMLST predictions using confidence and normalized source-specific distance thresholds.	R script	External human prediction filtering
+scripts/glmnet_cg.R	R script for cgMLST GLMNET/LASSO multiclass model training and five-fold cross-validation.	R script	Model benchmarking
+scripts/glmnet_wg.R	R script for wgMLST GLMNET/LASSO multiclass model training and five-fold cross-validation.	R script	Model benchmarking
+scripts/knn_cg.R	R script for cgMLST KNN-Hamming model training and five-fold cross-validation.	R script	Model benchmarking
+scripts/knn_wg800.R	R script for ranked wgMLST TopN KNN-Hamming benchmarking, including the Top800 main model.	R script	Model benchmarking
+scripts/rf_cg.R	R script for cgMLST Random Forest multiclass model training and five-fold cross-validation.	R script	Model benchmarking
+scripts/rf_wg.R	R script for wgMLST Random Forest multiclass model training and five-fold cross-validation.	R script	Model benchmarking
+scripts/xgb_cg.R	R script for cgMLST XGBoost multiclass model training and five-fold cross-validation.	R script	Model benchmarking
+scripts/xgb_wg.R	R script for wgMLST XGBoost multiclass model training and five-fold cross-validation.	R script	Model benchmarking
+docs/file_manifest.tsv	File-level manifest describing repository contents.	TSV	Documentation
+docs/data_dictionary.tsv	Column-level data dictionary for key tables and matrices.	TSV	Documentation
+docs/repository_structure.md	Markdown description of repository organization and omitted files.	Markdown	Documentation
